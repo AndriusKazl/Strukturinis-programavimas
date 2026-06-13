@@ -7,10 +7,7 @@
 #include <limits>
 
 using namespace std;
-
-// ============================================================
-// STRUCT - automobilio duomenų struktūra
-// ============================================================
+// Struktura
 struct Car {
     int id;
     string marke;
@@ -20,10 +17,7 @@ struct Car {
     int rida;
 };
 
-// ============================================================
-// PAGALBINĖS FUNKCIJOS
-// ============================================================
-
+// funkcijos
 void clearInput() {
     cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -37,9 +31,7 @@ int getNextId(const vector<Car>& cars) {
     return maxId + 1;
 }
 
-// ============================================================
 // FAILO OPERACIJOS
-// ============================================================
 
 vector<Car> loadFromFile(const string& filename) {
     vector<Car> cars;
@@ -104,10 +96,7 @@ void saveToFile(const string& filename, const vector<Car>& cars) {
 
     file.close();
 }
-
-// ============================================================
-// READ - peržiūra
-// ============================================================
+// peržiūra
 
 void printHeader() {
     cout << "\n"
@@ -161,9 +150,9 @@ void displayOne(const vector<Car>& cars) {
     cout << "[!] Automobilis su ID " << id << " nerastas.\n";
 }
 
-// ============================================================
-// CREATE - sukūrimas
-// ============================================================
+
+//sukūrimas
+
 
 void addCar(vector<Car>& cars, const string& filename) {
     Car c;
@@ -192,9 +181,8 @@ void addCar(vector<Car>& cars, const string& filename) {
     cout << "[+] Automobilis pridetas (ID: " << c.id << ").\n";
 }
 
-// ============================================================
-// UPDATE - redagavimas
-// ============================================================
+
+//redagavimas
 
 void updateCar(vector<Car>& cars, const string& filename) {
     int id;
@@ -234,9 +222,7 @@ void updateCar(vector<Car>& cars, const string& filename) {
     cout << "[!] Automobilis su ID " << id << " nerastas.\n";
 }
 
-// ============================================================
 // DELETE - šalinimas
-// ============================================================
 
 void deleteCar(vector<Car>& cars, const string& filename) {
     int id;
@@ -263,10 +249,7 @@ void deleteCar(vector<Car>& cars, const string& filename) {
     }
     cout << "[!] Automobilis su ID " << id << " nerastas.\n";
 }
-
-// ============================================================
-// PAPILDOMA 1 - Rikiavimas
-// ============================================================
+// Rikiavimas
 
 void sortCars(vector<Car>& cars) {
     if (cars.empty()) { cout << "[i] Sarasas tuscias.\n"; return; }
@@ -318,9 +301,9 @@ void sortCars(vector<Car>& cars) {
     displayAll(cars);
 }
 
-// ============================================================
-// PAPILDOMA 2 - Paieška
-// ============================================================
+
+// Paieška
+
 
 void searchCars(const vector<Car>& cars) {
     if (cars.empty()) { cout << "[i] Sarasas tuscias.\n"; return; }
@@ -392,10 +375,8 @@ void searchCars(const vector<Car>& cars) {
     }
 }
 
-// ============================================================
-// MENIU
-// ============================================================
 
+// MENIU
 void printMenu() {
     cout << "\n========================================\n";
     cout << "   AUTOMOBILIU VALDYMO SISTEMA\n";
@@ -412,9 +393,9 @@ void printMenu() {
     cout << "Pasirinkimas: ";
 }
 
-// ============================================================
-// MAIN
-// ============================================================
+
+// pagrindinė
+
 
 int main() {
     const string filename = "cars.txt";
